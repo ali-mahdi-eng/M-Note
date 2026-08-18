@@ -1,0 +1,16 @@
+{
+	"noteForDevloper": "this file for preview everything will save in localStorage, but in future will save also in real database(maybe firebase or any free database that easy to use)",
+	
+	"version": "0.1",
+	"notesList": [
+		{
+			"id": "0",
+			"title": "untitled",
+			"text": "my test note",
+			"charactersCount": 10,
+			"creationDate": "2026-08-08",
+			"isModified": false,
+			"modifyDate": null
+		}
+		]
+}

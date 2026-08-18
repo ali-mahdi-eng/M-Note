@@ -1,12 +1,14 @@
+"use client"
 
 
 
 function SettingsPage() {
-  return (
-    <main>
-        <h1>Settings Page</h1>
-    </main>
-  );
+    return (
+        <div>
+            <h1>Settings Page</h1>
+            <p>Manage your application settings here.</p>
+        </div>
+    )
 }
 
 export default SettingsPage;
