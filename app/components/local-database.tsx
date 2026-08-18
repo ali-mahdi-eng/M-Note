@@ -3,15 +3,38 @@
 import { NoteProps } from '@/app/types/types';
 
 
+// // CRUD -- create, read, update, delete
+// const localDatabase = {
+// 	data: JSON.parse(localStorage.getItem("localDatabase") || "{}" ),
+// 	// {notesList} :save data as array of objects, each object is a note details (id, title, text, ..etc)
+// 	notesList: JSON.parse(localStorage.getItem("localDatabase") || '{"version": "0.1","notesList": [] }' )["notesList"],
+// 	create: createNewNote,
+// 	update: editNote,
+// 	remove: removeNote
+// }
+
 // CRUD -- create, read, update, delete
 const localDatabase = {
-	data: JSON.parse(localStorage.getItem("localDatabase") || "{}" ),
+	data: getLocalDatabase(),
 	// {notesList} :save data as array of objects, each object is a note details (id, title, text, ..etc)
-	notesList: JSON.parse(localStorage.getItem("localDatabase") || '{"version": "0.1","notesList": [] }' )["notesList"],
+	notesList: getLocalDatabase()["notesList"],
 	create: createNewNote,
 	update: editNote,
 	remove: removeNote
 }
+
+
+
+function getLocalDatabase() {
+	if (typeof window === "undefined") {
+    	return { version: "0.1", notesList: [] };
+  	}
+
+	return JSON.parse(localStorage.getItem("localDatabase") || '{"version": "0.1", "notesList": [] }');
+}
+
+
+
 
 
 

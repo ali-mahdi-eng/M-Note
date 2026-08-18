@@ -2,6 +2,7 @@
 
 
 export type DBProps = {
+	version: string,
 	notesList: NoteProps[],
 }
 
