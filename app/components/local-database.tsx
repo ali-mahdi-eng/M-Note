@@ -15,6 +15,7 @@ import { NoteProps } from '@/app/types/types';
 
 // CRUD -- create, read, update, delete
 const localDatabase = {
+	version: getLocalDatabase().version,
 	data: getLocalDatabase(),
 	// {notesList} :save data as array of objects, each object is a note details (id, title, text, ..etc)
 	notesList: getLocalDatabase()["notesList"],
@@ -61,7 +62,7 @@ function createNewNote({ id, title, text, charactersCount, creationDate, isModif
 			isModified: isModified,
 			modifyDate: modifyDate
 		}
-	localDatabase.notesList.puah(newNote)
+	localDatabase.notesList.push(newNote)
 	localStorage.setItem("localDatabase", JSON.stringify(localDatabase));
 }
 
