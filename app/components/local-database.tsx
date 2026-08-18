@@ -24,11 +24,14 @@ const localDatabase = {
 }
 
 
-
+// get localStorage data, if not exist create it with default values
 function getLocalDatabase() {
 	if (typeof window === "undefined") {
     	return { version: "0.1", notesList: [] };
-  	}
+  	} 
+	if (!localStorage.getItem("localDatabase")) {
+		localStorage.setItem("localDatabase", JSON.stringify({ version: "0.1", notesList: [] }));
+	}
 
 	return JSON.parse(localStorage.getItem("localDatabase") || '{"version": "0.1", "notesList": [] }');
 }
