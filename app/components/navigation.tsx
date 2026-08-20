@@ -1,15 +1,24 @@
 "use client"
 
+import Link from 'next/link';
 import { NavigationProps } from '@/app/types/types';
 
 
 
+// function NavigationButton({ text, className, target, id }: NavigationProps) {
+// 	function handleNavigationButton() {
+// 		location.assign(`/${target}`);
+// 	}
+// 	return ( <button onClick={handleNavigationButton} className={className} data-target={target} id={id}> {text} </button> )
+// }
+
+
 function NavigationButton({ text, className, target, id }: NavigationProps) {
-	function handleNavigationButton() {
-		location.assign(`/${target}`);
-	}
-	return ( <button onClick={handleNavigationButton} className={className} data-target={target} id={id}> {text} </button> )
+	const href : string = target === 'home' ? '/' : `/${target}`
+
+	return ( <Link href={href} className={className} id={id}>{text}</Link> )
 }
+
 
 
 function NavigationBar() {
