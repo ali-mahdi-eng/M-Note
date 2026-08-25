@@ -52,7 +52,7 @@ function createID() : string {
 
 
 
-function createNewNote({ id, title, text, charactersCount, creationDate, isModified, modifyDate} : NoteProps) {
+function createNewNote({ id, title, text, charactersCount, creationDate, isModified, lastModifyDate} : NoteProps) {
 	const newNote = {
 			id: createID(),
 			title: title,
@@ -60,17 +60,17 @@ function createNewNote({ id, title, text, charactersCount, creationDate, isModif
 			charactersCount: charactersCount,
 			creationDate: creationDate,
 			isModified: isModified,
-			modifyDate: modifyDate
+			lastModifyDate: lastModifyDate
 		}
 	localDatabase.notesList.push(newNote)
 	localStorage.setItem("localDatabase", JSON.stringify(localDatabase));
 }
 
-function editNote({ id, title, text, charactersCount, creationDate, isModified, modifyDate} : NoteProps) {
+function editNote({ id, title, text, charactersCount, creationDate, isModified, lastModifyDate} : NoteProps) {
 	// code
 }
 
-function removeNote({ id, title, text, charactersCount, creationDate, isModified, modifyDate} : NoteProps) {
+function removeNote({ id, title, text, charactersCount, creationDate, isModified, lastModifyDate} : NoteProps) {
 	// code
 }
 
