@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/material-symbols-outlined.css">
+  <link rel="stylesheet" href="style/header.module.css">
+  <link rel="stylesheet" href="style/navigation.module.css">
+  <link rel="stylesheet" href="style/small-note.module.css">
+  <link rel="stylesheet" href="style/create-new-note-button.module.css">
+  <link rel="stylesheet" href="style/page.module.css">
+  <title>Home Page</title>
+</head>
+<body>
+
+  <main class="main">
+
+    <!-- Header -->
+    <header class="Header">
+      <!-- محتوى الهيدر -->
+      <span class="AppTitle">M-Note</span>
+      <button class="sortButton material-symbols-outlined">sort</button>
+    </header>
+
+    <!-- Notes List -->
+    <section class="NotesList" dir="auto">
+      <!-- مثال على ملاحظة واحدة (SmallNote) -->
+      <div class="SmallNote" data-id="1">
+        <h3 class="NoteTitle">عنوان الملاحظة 1</h3>
+        <p class="NoteText">نص الملاحظة 2</p>
+        <span class="NoteCharactersCount">0</span>
+        <span class="NoteCreationDate">2026-8-19</span>
+        <span class="NoteModifyDate ">2026-8-20</span>
+      </div>
+      <div class="SmallNote" data-id="1">
+        <h3 class="NoteTitle"> 2عنوان الملاحظة</h3>
+        <p class="NoteText">نص الملاحظة</p>
+        <span class="NoteCharactersCount">0</span>
+        <span class="NoteCreationDate">2026-8-19</span>
+        <span class="NoteModifyDate ">2026-8-20</span>
+      </div>
+      <div class="SmallNote" data-id="1">
+        <h3 class="NoteTitle">عنوان الملاحظة 3</h3>
+        <p class="NoteText">نص الملاحظة</p>
+        <span class="NoteCharactersCount">0</span>
+        <span class="NoteCreationDate">2026-8-19</span>
+        <span class="NoteModifyDate ">2026-8-20</span>
+      </div>
+      <div class="SmallNote" data-id="1">
+        <h3 class="NoteTitle">عنوان الملاحظة 3</h3>
+        <p class="NoteText">نص الملاحظة</p>
+        <span class="NoteCharactersCount">0</span>
+        <span class="NoteCreationDate">2026-8-19</span>
+        <span class="NoteModifyDate ">2026-8-20</span>
+      </div>
+      <div class="SmallNote" data-id="1">
+        <h3 class="NoteTitle">عنوان الملاحظة 3</h3>
+        <p class="NoteText">نص الملاحظة</p>
+        <span class="NoteCharactersCount">0</span>
+        <span class="NoteCreationDate">2026-8-19</span>
+        <span class="NoteModifyDate ">2026-8-20</span>
+      </div>
+      <div class="SmallNote" data-id="1">
+        <h3 class="NoteTitle">عنوان الملاحظة 3</h3>
+        <p class="NoteText">نص الملاحظة</p>
+        <span class="NoteCharactersCount">0</span>
+        <span class="NoteCreationDate">2026-8-19</span>
+        <span class="NoteModifyDate ">2026-8-20</span>
+      </div>
+      <div class="SmallNote" data-id="1">
+        <h3 class="NoteTitle">عنوان الملاحظة 3</h3>
+        <p class="NoteText">نص الملاحظة</p>
+        <span class="NoteCharactersCount">0</span>
+        <span class="NoteCreationDate">2026-8-19</span>
+        <span class="NoteModifyDate ">2026-8-20</span>
+      </div>
+      <div class="SmallNote" data-id="1">
+        <h3 class="NoteTitle">عنوان الملاحظة 3</h3>
+        <p class="NoteText">نص الملاحظة</p>
+        <span class="NoteCharactersCount">0</span>
+        <span class="NoteCreationDate">2026-8-19</span>
+        <span class="NoteModifyDate ">2026-8-20</span>
+      </div>
+      <div class="SmallNote" data-id="1">
+        <h3 class="NoteTitle">عنوان الملاحظة 3</h3>
+        <p class="NoteText">نص الملاحظة</p>
+        <span class="NoteCharactersCount">0</span>
+        <span class="NoteCreationDate">2026-8-19</span>
+        <span class="NoteModifyDate ">2026-8-20</span>
+      </div>
+
+      <!-- في حال عدم وجود ملاحظات، استبدل المحتوى أعلاه بـ: -->
+      <!-- <p class="no-notes-found">No Notes Found</p> -->
+    </section>
+
+    <!-- Create New Note Button -->
+    <button id="createNewNoteButton" class="material-symbols-outlined" onclick="location.assign('note.html');">add</button>
+
+    <!-- Navigation Bar -->
+	  <nav class="NavigationBar">
+	    <button class="NavigationButton material-symbols-outlined" data-target="folders" id="folders">folder</button>
+	    <button class="NavigationButton material-symbols-outlined active-NavigationButton" data-target="home" id="home">home</button>
+			<!-- "Send To Trash" Should move into settingspage-->
+			<!-- <button style="display: none;" class="NavigationButton material-symbols-outlined" data-target="trash" id="trash">restore_from_trash</button> -->
+			<button class="NavigationButton material-symbols-outlined" data-target="settings" id="settings">settings</button>
+	  </nav>
+
+  </main>
+
+</body>
+</html>

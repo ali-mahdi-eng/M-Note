@@ -1,0 +1,128 @@
+:root {
+	--background: rgb(30,30,30);
+	--foreground: #ededed;
+}
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: var(--foreground);
+  background: var(--background);
+	font-family: Sans-Serif;
+}
+
+.main {
+	height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 70px 0 0 0;
+}
+
+.NotesList {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  height: 100%;
+  width: 100%;
+  padding: 10px 0 100px 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.noNotesFound {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+
+
+
+#createNewNoteButton {
+	position: fixed;
+	top: 25%;
+	right: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	width: 40px;
+	border: none;
+  border: 2px solid var(--foreground);
+	border-radius: 15px;
+	background: var(--background);
+	color: var(--foreground);
+	font-size: 32px;
+	transition: 0.12s ease;
+}
+
+#createNewNoteButton:hover {
+	scale: 1.2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile Screen Layout */
+@media (max-width: 600px) {
+	
+	.main {
+		padding: 70px 0 0 0;
+	}
+	
+	.NotesList {
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: flex-start;
+	  flex-wrap: nowrap;
+	  gap: 8px;
+	  padding: 10px 0 100px 0;
+	}
+	
+	.noNotesFound {
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+
+
+  #createNewNoteButton {
+		top: auto;
+		right: 35px;
+		bottom: 140px;
+		height: 65px;
+		width: 65px;
+		border-radius: 20px;
+		font-size: 32px;
+	}
+	
+	#createNewNoteButton:active {
+		scale: 0.85;
+	}
+
+
+
+
+}
+
+

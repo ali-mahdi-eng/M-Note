@@ -1,0 +1,102 @@
+:root {
+	--note-background: #36383e;
+	--note-background-hover: #383b46;
+	
+	--text-primary: #ebebeb;
+	--text-secondary: #f2f2f2 ;
+}
+
+
+
+.SmallNote {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-start;
+	flex-shrink: 0;
+	min-height: 300px;
+	max-height: 500px;
+	width: 300px;
+	padding: 5px 10px;
+	border-radius: 10px;
+	background: var(--note-background);
+	color: var(--text-primary);
+	transition: all 0.1s ease;
+	box-shadow: 2px 1px 4px 1px rgba(0,0,0,0.16);
+}
+
+.SmallNote:active {
+	width: 98%;
+	background: var(--note-background-hover);
+	color: var(--text-secondary);
+}
+
+
+.SmallNote .NoteTitle {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.SmallNote .NoteText {
+	font-size: 0.9rem;
+}
+
+.SmallNote .NoteModifyDate {
+	align-self: flex-end;
+	font-size: 0.7rem;
+}
+
+.NoteCharactersCount,
+.NoteCreationDate {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* Mobile Screen Layout */
+@media (max-width: 600px) {
+	
+	.SmallNote {
+		min-height: 100px;
+		max-height: 200px;
+		width: 95%;
+		padding: 5px 10px;
+		border-radius: 10px;
+		box-shadow: 2px 1px 4px 1px rgba(0,0,0,0.16);
+	}
+	
+	.SmallNote:active {
+		width: 98%;
+		background: var(--note-background-hover);
+		color: var(--text-secondary);
+	}
+	
+	
+	.SmallNote .NoteTitle {
+		font-size: 1.2rem;
+	}
+	
+	.SmallNote .NoteText {
+		font-size: 0.9rem;
+	}
+	
+	.SmallNote .NoteModifyDate {
+		font-size: 0.7rem;
+	}
+	
+	.NoteCharactersCount,
+	.NoteCreationDate {
+		display: none;
+	}
+	
+	
+	
+}
+

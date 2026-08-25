@@ -14,13 +14,12 @@ export type NoteProps = {
 	charactersCount: number,
 	creationDate: string,
 	isModified: boolean,
-	modifyDate: string | null
+	lastModifyDate: string | null
 }
 
 
 export type NavigationProps = {
 	text: string,
-	className: string,
 	target: string,
 	id: string
 }

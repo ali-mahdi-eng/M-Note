@@ -1,0 +1,103 @@
+:root {
+	--background: rgb(30,30,30);
+}
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #ebebeb;
+	background: var(--background);
+	font-family: Sans-Serif;
+}
+
+.main {
+	height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 70px 0 0 0;
+}
+
+.NotesList {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  height: 100%;
+  width: 100%;
+  padding: 10px 0 100px 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.no-notes-found {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+
+/* Mobile Screen Layout */
+@media (max-width: 600px) {
+	
+	.main {
+		padding: 70px 0 0 0;
+	}
+	
+	.NotesList {
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: flex-start;
+	  flex-wrap: nowrap;
+	  gap: 8px;
+	  padding: 10px 0 100px 0;
+	}
+	
+	.no-notes-found {
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+
+
+
+}
+
+
+/*
+@media (max-width: 600px) {
+  .main {
+    padding: 48px 24px;
+  }
+
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert();
+  }
+
+  .page {
+    --background: #000;
+    --foreground: #000;
+
+    --text-primary: #ededed;
+    --text-secondary: #999;
+
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+    --button-secondary-border: #1a1a1a;
+  }
+}
+
+*/

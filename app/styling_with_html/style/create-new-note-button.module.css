@@ -1,0 +1,51 @@
+:root {
+	--background: #0a0a0a;
+	--background: rgb(30,30,30);
+	--foreground: #ededed;
+}
+
+
+
+#createNewNoteButton {
+	position: fixed;
+	top: 550px;
+	right: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 65px;
+	width: 65px;
+	border: none;
+	border-radius: 20px;
+	background: var(--background);
+	color: var(--foreground);
+	font-size: 32px;
+	transition: 0.15s ease;
+}
+
+#createNewNoteButton:active {
+	scale: 0.85;
+}
+
+
+
+
+/* Mobile Screen Layout */
+@media (max-width: 600px) {
+	
+	#createNewNoteButton {
+		top: auto;
+		right: 35px;
+		bottom: 140px;
+		height: 65px;
+		width: 65px;
+		border-radius: 20px;
+		font-size: 32px;
+	}
+	
+	#createNewNoteButton:active {
+		scale: 0.85;
+	}
+	
+	
+}

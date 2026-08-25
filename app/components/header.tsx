@@ -2,21 +2,25 @@
 
 import { NoteProps } from '@/app/types/types';
 
+import "./style/header.css";
+import './style/material-symbols-outlined.css';
+
+
 
 
 function SortButton() {
 	function handleSortButton() {
 		// sort by (name, date, group)
 	}
-	return ( <button onClick={handleSortButton} className="sortButton"> sort by </button> )
+	return ( <button onClick={handleSortButton} className={"sortButton materialSymbolsOutlined"}>sort</button> )
 }
 
 
 
 function Header() {
 	return (
-		<header className="header">
-			<h1 className="AppTitle"> M-note </h1>
+		<header className="Header">
+			<span className="AppTitle"> M-note </span>
 			<SortButton />
 		</header>
 		)

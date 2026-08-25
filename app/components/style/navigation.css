@@ -1,0 +1,89 @@
+:root {
+	--navigation-background: #171717;
+	--navigation-foreground: #ededed;
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+.NavigationBar {
+	position: fixed;
+	top: 60%;
+	right: 20px;
+	bottom: auto;
+	left: auto;
+	transform: translateY(-50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	height: 200px;
+	width: 60px;
+	padding: 10px 0;
+	border-radius: 20px;
+	background: var(--navigation-background);
+}
+
+.NavigationButton {
+	user-select: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	width: 40px;
+	border: none;
+	border-radius: 16px;
+	background: rgb(237,237,237, 0.2);
+	color: var(--navigation-foreground);
+	font-size: 24px; /* size of icons (google font icons) */
+	transition: 0.07s ease;
+}
+
+.NavigationButton.active-NavigationButton, .NavigationButton:hover {
+	background: var(--navigation-foreground);
+	color: var(--navigation-background);
+	scale: 1.2;
+}
+
+
+
+
+
+
+/* Mobile Screen Layout */
+@media (max-width: 600px) {
+
+	.NavigationBar {
+		top: auto;
+		right: auto;
+		bottom: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		height: 76px;
+		width: 90%;
+		padding: 0 10px;
+		border-radius: 20px;
+	}
+	
+	.NavigationButton {
+		height: 54px;
+		width: 54px;
+		border-radius: 16px;
+		font-size: 28px; /* size of icons (google font icons) */
+	}
+	
+	.NavigationButton.active-NavigationButton, .NavigationButton:active {
+		scale: 1.2;
+	}
+	
+	
+}
+

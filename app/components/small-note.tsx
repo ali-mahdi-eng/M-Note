@@ -18,7 +18,10 @@
 import { NoteProps } from '@/app/types/types';
 import localDatabase from '@/app/components/local-database'
 // Control Bar Buttons
-import { AddNoteToGroupButton, EditNoteButton, SaveEditNoteButton, DeleteNoteButton, /* isNoteEditable */ } from '@/app/components/buttons'
+
+
+import '../components/style/note.css';
+import '../components/style/material-symbols-outlined.css';
 
 
 // import React from 'react';
@@ -52,19 +55,69 @@ function NoteDate({ modifyDate } : {modifyDate:string | null}) {
 
 
 
-function IsModifiedIcon() {
-	return "📝 ";
+function LastModifiedIcon() {
+	return (<span className={"LastModifiedIcon materialSymbolsOutlined"}>border_color</span>);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const [noteEditable, setNoteEditable] = useState<boolean>(false);
+
+
+// Note Tools Bar Buttons
+function AddNoteToGroupButton() {
+	function handleAddNoteToGroupButton() {
+		// setNoteEditable(true);
+		// Add Code To add this note to group
+	}
+	return ( <button onClick={handleAddNoteToGroupButton} className={"addNoteToGroupButton materialSymbolsOutlined"}> add to group </button> )
+}
+
+function EditNoteButton() {
+	function handleEditeNoteButton() {
+		// setNoteEditable(true);
+		// Add Code To Show Edit Tools
+	}
+	return ( <button onClick={handleEditeNoteButton} className={"editNoteButton materialSymbolsOutlined"}> edit </button> )
+}
+
+function SaveEditNoteButton() {
+	function handleSaveEditeNoteButton() {
+		// setNoteEditable(false);
+		// Add Code To Save Edit
+	}
+	return ( <button onClick={handleSaveEditeNoteButton} className={"saveEditNoteButton materialSymbolsOutlined"}> done </button> )
+}
+
+function DeleteNoteButton() {
+	function handleDeleteNoteButton() {
+		// Add Code To Delete This Note
+	}
+	return ( <button onClick={handleDeleteNoteButton} className={"deleteButton materialSymbolsOutlined"}> delete </button> )
+}
+
+
+
 
 
 
 function ToolsBar({ id } : {id:string}) {
 	return (
 		<div className="ToolsBar">
-			<AddNoteToGroupButton id={id} />
-			{/* { (isNoteEditable) ? (<SaveEditNoteButton id={id} />) : (<EditNoteButton id={id} />) } */}
-			<EditNoteButton id={id} />
-			<DeleteNoteButton id={id} />
+			<AddNoteToGroupButton />
+			{/* { (isNoteEditable) ? (<SaveEditNoteButton />) : (<EditNoteButton />) } */}
+			<EditNoteButton />
+			<DeleteNoteButton />
 		</div>
 	)
 }
@@ -72,12 +125,12 @@ function ToolsBar({ id } : {id:string}) {
 
 function SmallNote({ id, title, text, charactersCount, creationDate, isModified, modifyDate} : NoteProps) {
 	return(
-		<div> 
+		<div className={"SmallNote"}> 
 			<ToolsBar id={id} />
 			<NoteTitle value={title}/>
 			<NoteText value={text}/>
 			<NoteDate modifyDate={modifyDate}/>
-			{ isModified && <IsModifiedIcon /> }  { /* show an svg icon for modified (edited) icon only if the note is modified (edited), otherwise don't show anything else. */ }
+			<LastModifiedIcon />
 		</div>
 	)
 }

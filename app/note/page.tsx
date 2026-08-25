@@ -4,17 +4,16 @@
 import { NoteProps } from '@/app/types/types';
 import localDatabase from '@/app/components/local-database'
 // Control Bar Buttons
-import { AddNoteToGroupButton, EditNoteButton, SaveEditNoteButton, DeleteNoteButton, /* isNoteEditable */ } from '@/app/components/buttons'
 
 
-// import React from 'react';
-// import { useState } from 'react';
+import '../components/style/note.css';
+import '../components/style/material-symbols-outlined.css';
 
 
+import React from 'react';
+import { useState } from 'react';
 
-// const [title, setTitle] = useState("Untitled");
-// const [text, setText] = useState("Write Here");
-// const [date, setDate] = useState("2026-8-15");
+
 
 
 
@@ -22,48 +21,114 @@ import { AddNoteToGroupButton, EditNoteButton, SaveEditNoteButton, DeleteNoteBut
 
 
 function NoteTitle({ value } : {value:string}) {
-	return (
-		<input type="text" value={value} />
-	)
+	const [title, setTitle] = useState("Untitled");
+
+	return (<input type="text" className={"NoteTitle"} value={value} placeholder="Title Here" /> )
 }
 
 function NoteText({ value } : {value:string}) {
-	return ( <span className="NoteText"> {value} </span> )
+	const [text, setText] = useState("Write Here");
+
+	return ( <textarea value={value} className={"NoteText"} dir="auto"  placeholder="Write Note Here.."></textarea> )
 }
 
 // Last Update date (modifyDate)
-function NoteDate({ modifyDate } : {modifyDate:string | null}) {
-	return ( <span className="modifyDate"> {modifyDate} </span> )
+function NoteLastModifyDate({ value } : {value:string | null}) {
+	const [modifyDate, setModifyDate] = useState("2026-8-15");
+
+	return ( <span className="LastModifyDate"> {value} </span> )
 }
 
 
 
-function IsModifiedIcon() {
-	return "📝 ";
+function LastModifiedIcon() {
+	return (<span className={"LastModifiedIcon materialSymbolsOutlined"}>border_color</span>);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Note Tools Bar Buttons
+function BackButton() {
+	function handleBackButton() {
+		// Add Code To Go to home page
+		history.back();
+	}
+	return ( <button onClick={handleBackButton} className={"BackButton materialSymbolsOutlined"}>arrow_back</button> )
+}
+
+function EditNoteButton() {
+	function handleEditeNoteButton() {
+		// setNoteEditable(true);
+		// Add Code To Show Edit Tools
+	}
+	return ( <button onClick={handleEditeNoteButton} className={"editNoteButton materialSymbolsOutlined"}> edit </button> )
+}
+
+function SaveEditNoteButton() {
+	function handleSaveEditeNoteButton() {
+		// setNoteEditable(false);
+		// Add Code To Save Edit
+	}
+	return ( <button onClick={handleSaveEditeNoteButton} className={"SaveEditNoteButton materialSymbolsOutlined"}> done </button> )
+}
+
+function AddNoteToGroupButton() {
+	function handleAddNoteToGroupButton() {
+		// setNoteEditable(true);
+		// Add Code To add this note to group
+	}
+	return ( <button onClick={handleAddNoteToGroupButton} className={"AddNoteToGroupButton materialSymbolsOutlined"}>folder</button> )
+}
+
+function DeleteNoteButton() {
+	function handleDeleteNoteButton() {
+		// Add Code To Delete This Note
+	}
+	return ( <button onClick={handleDeleteNoteButton} className={"DeleteButton materialSymbolsOutlined"}> delete </button> )
+}
+
+
+
+
+
 
 
 
 function ToolsBar({ id } : {id:string}) {
+	// const [noteEditable, setNoteEditable] = useState(false);
+
 	return (
 		<div className="ToolsBar">
-			<AddNoteToGroupButton id={id} />
-			{/* { (isNoteEditable) ? (<SaveEditNoteButton id={id} />) : (<EditNoteButton id={id} />) } */}
-			<EditNoteButton id={id} />
-			<DeleteNoteButton id={id} />
+			<BackButton />
+			{/* { (isNoteEditable) ? (<SaveEditNoteButton />) : (<EditNoteButton />) } */}
+			<EditNoteButton />
+			<AddNoteToGroupButton />
+			<DeleteNoteButton />
 		</div>
 	)
 }
 
 
-function Note({ id, title, text, charactersCount, creationDate, isModified, modifyDate} : NoteProps) {
+function Note({ id, title, text, charactersCount, creationDate, isModified, lastModifyDate} : NoteProps) {
 	return(
-		<div> 
+		<div className={"Note"}> 
 			<ToolsBar id={id} />
 			<NoteTitle value={title}/>
 			<NoteText value={text}/>
-			<NoteDate modifyDate={modifyDate}/>
-			{ isModified && <IsModifiedIcon /> }  { /* show an svg icon for modified (edited) icon only if the note is modified (edited), otherwise don't show anything else. */ }
+			<NoteLastModifyDate value={lastModifyDate}/>
+			<LastModifiedIcon />
 		</div>
 	)
 }
