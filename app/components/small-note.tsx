@@ -49,8 +49,8 @@ function NoteText({ value } : {value:string}) {
 }
 
 // Last Update date (modifyDate)
-function NoteDate({ modifyDate } : {modifyDate:string | null}) {
-	return ( <span className="modifyDate"> {modifyDate} </span> )
+function NoteLastModifyDate({ value } : {value:string | null}) {
+	return ( <span className="LastModifyDate"> {value} </span> )
 }
 
 
@@ -123,13 +123,13 @@ function ToolsBar({ id } : {id:string}) {
 }
 
 
-function SmallNote({ id, title, text, charactersCount, creationDate, isModified, modifyDate} : NoteProps) {
+function SmallNote({ id, title, text, charactersCount, creationDate, isModified, lastModifyDate} : NoteProps) {
 	return(
 		<div className={"SmallNote"}> 
 			<ToolsBar id={id} />
 			<NoteTitle value={title}/>
 			<NoteText value={text}/>
-			<NoteDate modifyDate={modifyDate}/>
+			<NoteLastModifyDate value={lastModifyDate}/>
 			<LastModifiedIcon />
 		</div>
 	)
