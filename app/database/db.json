@@ -5,12 +5,13 @@
 	"notesList": [
 		{
 			"id": "0",
-			"title": "untitled",
+			"title": "untitled-0",
 			"text": "my test note",
 			"charactersCount": 10,
 			"creationDate": "2026-08-08",
 			"isModified": false,
-			"modifyDate": null
+			"lastModifyDate": "2026-08-08",
+			"group": null
 		}
 		]
 }

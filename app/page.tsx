@@ -29,17 +29,19 @@ function NotesList({ db } : { db : DBProps }) {
 		return <p className="noNotesFound"> There&#39;s no notes yet, Click + to add one. </p>
 	}
 
-	const notesList = db["notesList"].map((note: NoteProps)=> 
-		<SmallNote 
-			key={note.id}
-			id={note.id}
-			title={note.title}
-			text={note.text}
-			charactersCount={note.charactersCount}
-			creationDate={note.creationDate}
-			isModified={note.isModified}
-			lastModifyDate={note.lastModifyDate}
-		/> );
+	const notesList = db["notesList"].map((note: NoteProps)=> (
+		<Link href={`/note/${note.id}`} key={note.id} className="noteLink">
+			<SmallNote
+				id={note.id}
+				title={note.title}
+				text={note.text}
+				charactersCount={note.charactersCount}
+				creationDate={note.creationDate}
+				isModified={note.isModified}
+				lastModifyDate={note.lastModifyDate}
+			/>
+		</Link>
+	));
 	return ( <section className={"NotesList"} dir="auto">{notesList}</section> )
 
 }

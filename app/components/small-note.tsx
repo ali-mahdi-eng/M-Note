@@ -29,12 +29,6 @@ import '../components/style/material-symbols-outlined.css';
 
 
 
-// const [title, setTitle] = useState("Untitled");
-// const [text, setText] = useState("Write Here");
-// const [date, setDate] = useState("2026-8-15");
-
-
-
 
 
 
@@ -123,7 +117,7 @@ function ToolsBar({ id } : {id:string}) {
 }
 
 
-function SmallNote({ id, title, text, charactersCount, creationDate, isModified, lastModifyDate} : NoteProps) {
+function SmallNote({ id, title, text, charactersCount, creationDate, lastModifyDate} : NoteProps) {
 	return(
 		<div className={"SmallNote"}> 
 			<ToolsBar id={id} />
