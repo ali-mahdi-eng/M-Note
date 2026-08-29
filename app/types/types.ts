@@ -3,8 +3,7 @@
 
 export type DBProps = {
 	version: string,
-	// notesList: NoteProps[],
-	notesList: {string : NoteProps[]},
+	notesList: { [key: string]: NoteProps },
 }
 
 
@@ -24,7 +23,8 @@ export type NoteProps = {
 export type NavigationProps = {
 	text: string,
 	target: string,
-	id: string
+	id: string,
+	activeNav?: null| "home" | "folders" | "settings"
 }
 
 

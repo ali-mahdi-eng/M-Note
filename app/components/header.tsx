@@ -20,7 +20,7 @@ function SortButton() {
 function Header() {
 	return (
 		<header className="Header">
-			<span className="AppTitle"> M-note </span>
+			<span className="AppTitle"> M-Note </span>
 			<SortButton />
 		</header>
 		)
