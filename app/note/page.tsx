@@ -9,13 +9,11 @@ import '../components/style/note.css';
 import '../components/style/material-symbols-outlined.css';
 
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 
 
-// (By Claude AI): force-dynamic: disables static generation since useSearchParams() needs the request URL at runtime
-export const dynamic = "force-dynamic";
 
 
 
@@ -154,11 +152,23 @@ function NoteEditor({ noteID } : { noteID: string | null }) {
 
 
 
-function NotePage() {
+
+
+
+
+function NotePageContent() {
 	const searchParams = useSearchParams();
 	const id = searchParams.get("id");
 
 	return ( <NoteEditor key={id} noteID={id} /> );
+}
+
+function NotePage() {
+	return (
+		<Suspense fallback={null}>
+			<NotePageContent />
+		</Suspense>
+	);
 }
 
 
