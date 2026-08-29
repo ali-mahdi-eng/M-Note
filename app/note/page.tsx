@@ -14,6 +14,9 @@ import { useSearchParams } from 'next/navigation';
 
 
 
+// (By Claude AI): force-dynamic: disables static generation since useSearchParams() needs the request URL at runtime
+export const dynamic = "force-dynamic";
+
 
 
 
