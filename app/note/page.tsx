@@ -3,14 +3,14 @@
 
 import { NoteProps } from '@/app/types/types';
 import localDatabase from '@/app/components/local-database'
-import { getNoteContent } from './get-note-by-index';
+import { getNoteContentById } from './get-note-by-index';
 
 import '../components/style/note.css';
 import '../components/style/material-symbols-outlined.css';
 
 
-import { useState, useEffect } from 'react';
-
+import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 
 
@@ -98,11 +98,6 @@ function ToolsBar({ id, group, isNoteSaved, handleSaveNoteButton } : {id:string,
 
 
 
-
-
-
-
-
 function createID() : string {
 	// These comments are writren by AI, and they are not part of the code. They are just for explanation.
 	// Create a unique ID for the note using current timestamp and a random number
@@ -115,20 +110,8 @@ function createID() : string {
 
 
 
-
-function Note() {
-	const noteContent = getNoteContent();
-	console.log("noteContent:", noteContent);
-
-
-	// const [id, setId] = useState(createID());
-	// const [title, setTitle] = useState("Untitled");
-	// const [text, setText] = useState("Write Here");
-	// const [charactersCount, setCharactersCount] = useState(0);
-	// const [creationDate, setCreationDate] = useState<string>(new Date().toISOString().split('T')[0]);
-	// const [lastModifyDate, setLastModifyDate] = useState<string | null>(null);
-	// const [group, setGroup] = useState<string | null>(null);
-	// const [isNoteSaved, setNoteSaved] = useState(true);
+function NoteEditor({ noteID } : { noteID: string | null }) {
+	const noteContent = getNoteContentById(noteID);
 
 	const [id, setId] = useState(noteContent?.id ?? createID());
 	const [title, setTitle] = useState(noteContent?.title ?? "");
@@ -141,12 +124,9 @@ function Note() {
 
 
 	
-
-	
 	function handleSaveNoteButton() {
 		setNoteSaved(true);
-		// Code To Save Edit.
-		// If note exist update it else create new one
+		// function `createNote();`: If note exist update it else create new one
 		localDatabase.createNote({ id, title, text, charactersCount, creationDate, lastModifyDate, group });
 	}	
 
@@ -157,10 +137,8 @@ function Note() {
 	}
 	
 
-
-
 	return(
-		<div className="Note"> 
+		<div className="Note" dir="auto"> 
 			<ToolsBar id={id} group={group} isNoteSaved={isNoteSaved} handleSaveNoteButton={handleSaveNoteButton} />
 			<NoteTitle value={title} onChange={(e) => {setTitle(e.target.value); handleNoteChange({noteText: e.target.value})}} />
 			<NoteText value={text} onChange={(e) => {setText(e.target.value); handleNoteChange({noteText: null})}} />
@@ -169,4 +147,16 @@ function Note() {
 		</div>
 	)
 }
-export default Note;
+
+
+
+
+function NotePage() {
+	const searchParams = useSearchParams();
+	const id = searchParams.get("id");
+
+	return ( <NoteEditor key={id} noteID={id} /> );
+}
+
+
+export default NotePage;

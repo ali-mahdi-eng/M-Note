@@ -1,10 +1,10 @@
 
-export function getNoteContent() {
+export function getNoteContentById(noteID) {
     if (typeof window === "undefined") {
         return null;
     }
-    const searchParams = new URLSearchParams(window.location.search);
-    const noteID = searchParams.get('id');
+    // const searchParams = new URLSearchParams(window.location.search);
+    // const noteID = searchParams.get('id');
 
     const db = JSON.parse(localStorage.getItem("localDatabase") || "{}");
 
