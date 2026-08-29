@@ -1,6 +1,6 @@
 
 export function getNoteContentById(noteID) {
-    if (typeof window === "undefined") {
+    if (typeof window === "undefined" || !noteID) {
         return null;
     }
     // const searchParams = new URLSearchParams(window.location.search);
