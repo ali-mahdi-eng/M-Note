@@ -3,14 +3,13 @@
 
 import { NoteProps } from '@/app/types/types';
 import localDatabase from '@/app/components/local-database'
-// Control Bar Buttons
-
+import { getNoteContent } from './get-note-by-index';
 
 import '../components/style/note.css';
 import '../components/style/material-symbols-outlined.css';
 
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 
@@ -61,14 +60,6 @@ function BackButton() {
 	return ( <button onClick={handleBackButton} className="BackButton materialSymbolsOutlined">arrow_back</button> )
 }
 
-function EditNoteButton() {
-	function handleEditeNoteButton() {
-		// setNoteEditable(true);
-		// Add Code To Show Edit Tools
-	}
-	return ( <button onClick={handleEditeNoteButton} className="editNoteButton materialSymbolsOutlined"> edit </button> )
-}
-
 function SaveEditNoteButton({ isNoteSaved, handleSaveNoteButton } : { isNoteSaved:boolean, handleSaveNoteButton:() => void}) {
 	return ( <button className="SaveEditNoteButton materialSymbolsOutlined" onClick={handleSaveNoteButton} style={{opacity: isNoteSaved ? 0.5 : 1, pointerEvents: isNoteSaved ? 'none' : 'auto'}}> save </button> )
 }
@@ -91,14 +82,11 @@ function DeleteNoteButton() {
 
 
 function ToolsBar({ id, group, isNoteSaved, handleSaveNoteButton } : {id:string, group:string | null, isNoteSaved:boolean, handleSaveNoteButton:() => void}) {
-	// const [noteEditable, setNoteEditable] = useState(false);
 
 	return (
 		<div className="ToolsBar">
 			<BackButton />
-			{/* { (isNoteEditable) ? (<SaveEditNoteButton />) : (<EditNoteButton />) } */}
 			<SaveEditNoteButton isNoteSaved={isNoteSaved} handleSaveNoteButton={handleSaveNoteButton} />
-			{/* <EditNoteButton /> */}
 			<AddNoteToGroupButton />
 			<DeleteNoteButton />
 		</div>
@@ -128,22 +116,38 @@ function createID() : string {
 
 
 
-function Note(/*{ id, title, text, charactersCount, creationDate, lastModifyDate} : NoteProps*/) {
-	const [title, setTitle] = useState("Untitled");
-	const [text, setText] = useState("Write Here");
-	const [creationDate, setCreationDate] = useState<string>(new Date().toISOString().split('T')[0]);
-	const [lastModifyDate, setLastModifyDate] = useState<string | null>(null);
-	const [id, setId] = useState(createID());
-	const [group, setGroup] = useState<string | null>(null);
-	const [charactersCount, setCharactersCount] = useState(0);
-	// const [isNoteEditable, setNoteEditable] = useState(false);
+function Note() {
+	const noteContent = getNoteContent();
+	console.log("noteContent:", noteContent);
+
+
+	// const [id, setId] = useState(createID());
+	// const [title, setTitle] = useState("Untitled");
+	// const [text, setText] = useState("Write Here");
+	// const [charactersCount, setCharactersCount] = useState(0);
+	// const [creationDate, setCreationDate] = useState<string>(new Date().toISOString().split('T')[0]);
+	// const [lastModifyDate, setLastModifyDate] = useState<string | null>(null);
+	// const [group, setGroup] = useState<string | null>(null);
+	// const [isNoteSaved, setNoteSaved] = useState(true);
+
+	const [id, setId] = useState(noteContent?.id ?? createID());
+	const [title, setTitle] = useState(noteContent?.title ?? "");
+	const [text, setText] = useState(noteContent?.text ?? "");
+	const [charactersCount, setCharactersCount] = useState(noteContent?.charactersCount ?? 0);
+	const [creationDate, setCreationDate] = useState<string>(noteContent?.creationDate ?? new Date().toISOString().split('T')[0]);
+	const [lastModifyDate, setLastModifyDate] = useState<string | null>(noteContent?.lastModifyDate ?? null);
+	const [group, setGroup] = useState<string | null>(noteContent?.group ?? null);
 	const [isNoteSaved, setNoteSaved] = useState(true);
 
 
+	
 
+	
 	function handleSaveNoteButton() {
 		setNoteSaved(true);
-		// Add Code To Save Edit
+		// Code To Save Edit.
+		// If note exist update it else create new one
+		localDatabase.createNote({ id, title, text, charactersCount, creationDate, lastModifyDate, group });
 	}	
 
 	function handleNoteChange({noteText}: {noteText: string | null}) {
@@ -152,6 +156,7 @@ function Note(/*{ id, title, text, charactersCount, creationDate, lastModifyDate
 		setLastModifyDate(new Date().toISOString().split('T')[0]);
 	}
 	
+
 
 
 	return(

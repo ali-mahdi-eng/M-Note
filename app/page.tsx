@@ -25,13 +25,28 @@ function CreateNewNoteButton() {
 
 
 function NotesList({ db } : { db : DBProps }) {
-	if (!db || db["notesList"].length === 0) {
+	if (!db || Object.keys(db["notesList"]).length === 0) {
 		return <p className="noNotesFound"> There&#39;s no notes yet, Click + to add one. </p>
 	}
 
-	const notesList = db["notesList"].map((note: NoteProps)=> (
-		<Link href={`/note/${note.id}`} key={note.id} className="noteLink">
-			<SmallNote
+	// const notesList = db["notesList"].map((note: NoteProps, index: number)=> (
+	// 		<SmallNote 
+	// 			key={"key-" + index}
+	// 			index={index}
+	// 			id={note.id}
+	// 			title={note.title}
+	// 			text={note.text}
+	// 			charactersCount={note.charactersCount}
+	// 			creationDate={note.creationDate}
+	// 			isModified={note.isModified}
+	// 			lastModifyDate={note.lastModifyDate}
+	// 			group={note.group}
+	// 		/>
+	// 	));
+		const notesList = Object.values(db["notesList"]).map((note, index)=> (
+			<SmallNote 
+				key={"key-" + index}
+				index={index}
 				id={note.id}
 				title={note.title}
 				text={note.text}
@@ -39,10 +54,11 @@ function NotesList({ db } : { db : DBProps }) {
 				creationDate={note.creationDate}
 				isModified={note.isModified}
 				lastModifyDate={note.lastModifyDate}
-			/>
-		</Link>
-	));
-	return ( <section className={"NotesList"} dir="auto">{notesList}</section> )
+				group={note.group}
+				/>
+		));
+		// Add `suppressHydrationWarning={true}` to element to silince warning about hydration.
+	return ( <section className="NotesList" dir="auto">{notesList}</section> )
 
 }
 

@@ -21,14 +21,15 @@
 	border-radius: 10px;
 	background: var(--note-background);
 	color: var(--text-primary);
-	transition: all 0.1s ease;
+	transition: all 0.05s linear;
 	box-shadow: 2px 1px 4px 1px rgba(0,0,0,0.16);
+	overflow: hidden;
 }
 
-.SmallNote:active {
-	width: 98%;
+.SmallNote:hover {
 	background: var(--note-background-hover);
 	color: var(--text-secondary);
+	scale: 0.95;
 }
 
 
@@ -64,11 +65,13 @@
 @media (max-width: 600px) {
 	
 	.SmallNote {
+		position: relative;
 		min-height: 100px;
 		max-height: 200px;
 		width: 95%;
 		padding: 5px 10px;
 		border-radius: 10px;
+		transition: all 0.1s ease;
 		box-shadow: 2px 1px 4px 1px rgba(0,0,0,0.16);
 	}
 	

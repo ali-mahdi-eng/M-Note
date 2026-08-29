@@ -3,38 +3,32 @@
 import { NoteProps } from '@/app/types/types';
 
 
-// // CRUD -- create, read, update, delete
-// const localDatabase = {
-// 	data: JSON.parse(localStorage.getItem("localDatabase") || "{}" ),
-// 	// {notesList} :save data as array of objects, each object is a note details (id, title, text, ..etc)
-// 	notesList: JSON.parse(localStorage.getItem("localDatabase") || '{"version": "0.1","notesList": [] }' )["notesList"],
-// 	create: createNewNote,
-// 	update: editNote,
-// 	remove: removeNote
-// }
-
-// CRUD -- create, read, update, delete
+// CRUD -- create, read, update, delete(remove)
 const localDatabase = {
 	version: getLocalDatabase().version,
 	data: getLocalDatabase(),
-	// {notesList} :save data as array of objects, each object is a note details (id, title, text, ..etc)
 	notesList: getLocalDatabase()["notesList"],
-	create: createNewNote,
-	update: editNote,
-	remove: removeNote
-}
+	
+	createNote: createNote,
+	updateNote: editNote,
+	removeNote: removeNote
+};
+
+
+
+
 
 
 // get localStorage data, if not exist create it with default values
 function getLocalDatabase() {
 	if (typeof window === "undefined") {
-    	return { version: "0.1", notesList: [] };
+    	return { version: "0.2", notesList: {} };
   	} 
 	if (!localStorage.getItem("localDatabase")) {
-		localStorage.setItem("localDatabase", JSON.stringify({ version: "0.1", notesList: [] }));
+		localStorage.setItem("localDatabase", JSON.stringify({ version: "0.2", notesList: {} }));
 	}
 
-	return JSON.parse(localStorage.getItem("localDatabase") || '{"version": "0.1", "notesList": [] }');
+	return JSON.parse(localStorage.getItem("localDatabase") || '{"version": "0.2", "notesList": {} }');
 }
 
 
@@ -45,31 +39,28 @@ function getLocalDatabase() {
 
 
 
-function createID() : string {
-	const id: string = `${Math.random()*10}-${Date.now()}`;
-	return id;
-}
 
-
-
-function createNewNote({ id, title, text, charactersCount, creationDate, lastModifyDate} : NoteProps) {
+function createNote({ id, title, text, charactersCount, creationDate, lastModifyDate, group } : NoteProps) {
 	const newNote = {
-			id: createID(),
+			id: id,
 			title: title,
 			text: text,
 			charactersCount: charactersCount,
 			creationDate: creationDate,
-			lastModifyDate: lastModifyDate
+			lastModifyDate: lastModifyDate,
+			group: group
 		}
-	localDatabase.notesList.push(newNote)
+	localDatabase.notesList[id] = newNote;
 	localStorage.setItem("localDatabase", JSON.stringify(localDatabase));
 }
 
-function editNote({ id, title, text, charactersCount, creationDate, lastModifyDate} : NoteProps) {
+
+// Later: Delete This Function and update "createNote" function name into  "createAndUpdateNote"
+function editNote({ id, title, text, charactersCount, creationDate, lastModifyDate, group } : NoteProps) {
 	// code
 }
 
-function removeNote({ id, title, text, charactersCount, creationDate, lastModifyDate} : NoteProps) {
+function removeNote({ id, title, text, charactersCount, creationDate, lastModifyDate, group } : NoteProps) {
 	// code
 }
 
