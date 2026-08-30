@@ -73,9 +73,12 @@ function AddNoteToGroupButton() {
 	return ( <button onClick={handleAddNoteToGroupButton} className="AddNoteToGroupButton materialSymbolsOutlined">folder</button> )
 }
 
-function DeleteNoteButton() {
+function DeleteNoteButton({ noteID } : {noteID: string }) {
 	function handleDeleteNoteButton() {
-		// Add Code To Delete This Note
+		// Add code here to confirm before delete
+		// code
+		localDatabase.deleteNote({noteID});
+		location.assign(`/`);
 	}
 	return ( <button onClick={handleDeleteNoteButton} className="DeleteButton materialSymbolsOutlined"> delete </button> )
 }
@@ -89,7 +92,7 @@ function ToolsBar({ id, group, isNoteSaved, handleSaveNoteButton } : {id:string,
 			<BackButton />
 			<SaveEditNoteButton isNoteSaved={isNoteSaved} handleSaveNoteButton={handleSaveNoteButton} />
 			<AddNoteToGroupButton />
-			<DeleteNoteButton />
+			<DeleteNoteButton noteID={id} />
 		</div>
 	)
 }
@@ -127,8 +130,8 @@ function NoteEditor({ noteID } : { noteID: string | null }) {
 	
 	function handleSaveNoteButton() {
 		setNoteSaved(true);
-		// function `createNote();`: If note exist update it else create new one
-		localDatabase.createNote({ id, title, text, charactersCount, creationDate, lastModifyDate, group });
+		// `createAndUpdateNote();`: If note exist update it else create new one
+		localDatabase.createAndUpdateNote({ id, title, text, charactersCount, creationDate, lastModifyDate, group });
 	}	
 
 	function handleNoteChange({noteText}: {noteText: string | null}) {

@@ -2,9 +2,6 @@
 
 import Link from 'next/link';
 import { NoteProps } from '@/app/types/types';
-import localDatabase from '@/app/components/local-database'
-// Control Bar Buttons
-
 
 import '../components/style/small-note.css';
 import '../components/style/material-symbols-outlined.css';

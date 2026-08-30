@@ -1,0 +1,29 @@
+{
+	"noteForDevloper": "this file for preview everything will save in localStorage, but in future will save also in real database(maybe firebase or any free database that easy to use)",
+	
+	"version": "0.2",
+	"notesList": {
+		"<id>": {
+			"id": "<id>",
+			"title": "untitled-0",
+			"text": "my test note",
+			"charactersCount": 10,
+			"creationDate": "2026-08-08",
+			"isModified": false,
+			"lastModifyDate": "2026-08-08",
+			"group": "< string | null >"
+		}
+	},
+	"trashList": {
+		"<id>": {
+			"id": "<id>",
+			"title": "untitled-0",
+			"text": "my test note",
+			"charactersCount": 10,
+			"creationDate": "2026-08-08",
+			"isModified": false,
+			"lastModifyDate": "2026-08-08",
+			"group": "< string | null >"
+		}
+	}
+}

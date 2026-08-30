@@ -4,6 +4,7 @@
 export type DBProps = {
 	version: string,
 	notesList: { [key: string]: NoteProps },
+	trashList: { [key: string]: NoteProps },
 }
 
 
