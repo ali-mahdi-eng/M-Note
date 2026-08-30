@@ -78,7 +78,7 @@ function DeleteNoteButton({ noteID } : {noteID: string }) {
 		// Add code here to confirm before delete
 		// code
 		localDatabase.deleteNote({noteID});
-		location.assign(`/`);
+		history.back();
 	}
 	return ( <button onClick={handleDeleteNoteButton} className="DeleteButton materialSymbolsOutlined"> delete </button> )
 }
