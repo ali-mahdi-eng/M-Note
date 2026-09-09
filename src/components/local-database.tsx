@@ -1,6 +1,5 @@
-"use client"
 
-import { NoteProps } from '@/app/types/types';
+import type { NoteProps } from '../types/types';
 
 
 

@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    {
+      "source": "/M-Note",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/M-Note/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+

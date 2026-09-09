@@ -1,5 +1,3 @@
-"use client"
-
 
 import "./style/header.css";
 import './style/material-symbols-outlined.css';

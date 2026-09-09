@@ -1,6 +1,3 @@
-"use client"
-
-
 
 function TrashPage() {
     return (

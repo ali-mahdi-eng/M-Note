@@ -1,10 +1,13 @@
-"use client"
 
-import Link from 'next/link';
-import { NoteProps } from '@/app/types/types';
+import { Link } from "react-router-dom";
+
+import type { NoteProps } from '../types/types';
 
 import '../components/style/small-note.css';
 import '../components/style/material-symbols-outlined.css';
+
+
+
 
 
 
@@ -32,13 +35,14 @@ function NoteLastModifyDate({ value } : {value:string | null}) {
 
 
 
-function SmallNote({ index, id, title, text, charactersCount, creationDate, lastModifyDate} : NoteProps) {
+function SmallNote({ index, id, title, text, /*charactersCount, creationDate,*/ lastModifyDate} : NoteProps) {
 	return(
 		<div className="SmallNote" id={id} dir="auto" /*onClick={()=>{location.assign(`/note?id=${id}`)}}*/> 
 			<NoteTitle value={title}/>
 			<NoteText value={text}/>
 			<NoteLastModifyDate value={lastModifyDate}/>
-			<Link href={`/note?id=${id}`} key={index} style={{position:"absolute", height:"100%", width:"100%"}} ></Link>
+			<Link to={`/note?id=${id}`} key={index} style={{position:"absolute", height:"100%", width:"100%"}} ></Link>
+
 		</div>
 	)
 }
