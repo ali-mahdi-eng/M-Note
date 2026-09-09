@@ -1,6 +1,6 @@
 "use client"
 
-import { DBProps, NoteProps } from '@/app/types/types';
+import { NoteProps } from '@/app/types/types';
 
 
 

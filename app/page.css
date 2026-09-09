@@ -13,12 +13,12 @@
 
 body {
 	background: var(--foreground);
-  background: var(--background);
+	background: var(--background);
 	font-family: Sans-Serif;
 }
 
 .main {
-	height: 100vh;
+	height: 100dvh;
   width: 100vw;
   overflow: hidden;
   overflow-y: scroll;

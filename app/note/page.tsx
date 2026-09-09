@@ -1,7 +1,6 @@
 "use client"
 
 
-import { NoteProps } from '@/app/types/types';
 import localDatabase from '@/app/components/local-database'
 import { getNoteContentById } from './get-note-by-index';
 
