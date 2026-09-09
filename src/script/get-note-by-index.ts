@@ -1,5 +1,5 @@
 
-export function getNoteContentById(noteID) {
+export function getNoteContentById(noteID : string | null) {
     if (typeof window === "undefined" || !noteID) {
         return null;
     }

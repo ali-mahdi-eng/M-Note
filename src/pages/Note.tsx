@@ -1,15 +1,14 @@
-"use client"
 
-
-import localDatabase from '@/app/components/local-database'
-import { getNoteContentById } from './get-note-by-index';
+import localDatabase from '../components/local-database'
+import { getNoteContentById } from '../script/get-note-by-index';
 
 import '../components/style/note.css';
 import '../components/style/material-symbols-outlined.css';
 
 
 import { useState, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from "react-router-dom";
+
 
 
 
@@ -84,7 +83,7 @@ function DeleteNoteButton({ noteID } : {noteID: string }) {
 
 
 
-function ToolsBar({ id, group, isNoteSaved, handleSaveNoteButton } : {id:string, group:string | null, isNoteSaved:boolean, handleSaveNoteButton:() => void}) {
+function ToolsBar({ id, /*group,*/ isNoteSaved, handleSaveNoteButton } : {id:string, group:string | null, isNoteSaved:boolean, handleSaveNoteButton:() => void}) {
 
 	return (
 		<div className="ToolsBar">
@@ -125,6 +124,10 @@ function NoteEditor({ noteID } : { noteID: string | null }) {
 	const [group, setGroup] = useState<string | null>(noteContent?.group ?? null);
 	const [isNoteSaved, setNoteSaved] = useState(true);
 
+	void setId;
+	void setCreationDate;
+	void setGroup;
+
 
 	
 	function handleSaveNoteButton() {
@@ -159,7 +162,7 @@ function NoteEditor({ noteID } : { noteID: string | null }) {
 
 
 function NotePageContent() {
-	const searchParams = useSearchParams();
+	const [searchParams] = useSearchParams();
 	const id = searchParams.get("id");
 
 	return ( <NoteEditor key={id} noteID={id} /> );

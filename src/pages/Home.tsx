@@ -1,14 +1,15 @@
 "use client"
 
-import Link from 'next/link';
-import localDatabase from '@/app/components/local-database'
-import Header from '@/app/components/header'
-import NavigationBar from '@/app/components/navigation'
-import SmallNote from '@/app/components/small-note'
-import { DBProps, NoteProps } from '@/app/types/types'
+import { Link } from "react-router-dom";
+
+import localDatabase from '../components/local-database'
+import Header from '../components/header'
+import NavigationBar from '../components/navigation'
+import SmallNote from '../components/small-note'
+import type { DBProps, NoteProps } from '../types/types'
 
 
-import './page.css'
+import '../style/home.css'
 
 
 
@@ -19,7 +20,7 @@ function CreateNewNoteButton() {
 	// 	location.assign("/note");
 	// }
 	// return (<button onClick={handleCreateNewNoteButton} id="createNewNoteButton" className={"createNewNoteButton materialSymbolsOutlined"}>add</button> );
-	return ( <Link href={"/note"}  id={"createNewNoteButton"} className={"createNewNoteButton materialSymbolsOutlined"}>add</Link> )
+	return ( <Link to={"/note"}  id={"createNewNoteButton"} className={"createNewNoteButton materialSymbolsOutlined"}>add</Link> )
 
 }
 

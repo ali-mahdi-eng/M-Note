@@ -1,7 +1,7 @@
-"use client"
 
-import Link from 'next/link';
-import { NavigationProps } from '@/app/types/types';
+import { Link } from "react-router-dom";
+
+import type { NavigationProps } from '../types/types';
 
 import './style/navigation.css';
 import './style/material-symbols-outlined.css';
@@ -11,9 +11,9 @@ import './style/material-symbols-outlined.css';
 
 
 function NavigationButton({ text, target, id }: NavigationProps) {
-	const href : string = target === 'home' ? '/' : `/${target}`
-
-	return ( <Link href={href} className={"NavigationButton materialSymbolsOutlined"} id={id}>{text}</Link> )
+	// const href : string = target === 'home' ? '/' : `/${target}`
+	const href : string = target === 'home' ? '/Home' : `/${target}`
+	return ( <Link to={href} className={"NavigationButton materialSymbolsOutlined"} id={id}>{text}</Link> )
 }
 
 
