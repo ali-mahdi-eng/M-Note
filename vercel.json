@@ -2,23 +2,23 @@
   "rewrites": [
     {
       "source": "/M-Note/assets/(.*)",
-      "destination": "/M-Note/assets/$1"
+      "destination": "/assets/$1"
     },
     {
       "source": "/M-Note/icons/(.*)",
-      "destination": "/M-Note/icons/$1"
+      "destination": "/icons/$1"
     },
     {
       "source": "/M-Note/manifest.json",
-      "destination": "/M-Note/manifest.json"
+      "destination": "/manifest.json"
     },
     {
       "source": "/M-Note/favicon.ico",
-      "destination": "/M-Note/favicon.ico"
+      "destination": "/favicon.ico"
     },
     {
       "source": "/M-Note/apple-touch-icon.png",
-      "destination": "/M-Note/apple-touch-icon.png"
+      "destination": "/apple-touch-icon.png"
     },
     {
       "source": "/M-Note",
