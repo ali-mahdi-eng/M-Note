@@ -1,31 +1,27 @@
 {
   "rewrites": [
     {
-      "source": "/M-Note/assets/(.*)",
+      "source": "/assets/(.*)",
       "destination": "/assets/$1"
     },
     {
-      "source": "/M-Note/icons/(.*)",
+      "source": "/icons/(.*)",
       "destination": "/icons/$1"
     },
     {
-      "source": "/M-Note/manifest.json",
+      "source": "/manifest.json",
       "destination": "/manifest.json"
     },
     {
-      "source": "/M-Note/favicon.ico",
+      "source": "/favicon.ico",
       "destination": "/favicon.ico"
     },
     {
-      "source": "/M-Note/apple-touch-icon.png",
+      "source": "/apple-touch-icon.png",
       "destination": "/apple-touch-icon.png"
     },
     {
-      "source": "/M-Note",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/M-Note/(.*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]

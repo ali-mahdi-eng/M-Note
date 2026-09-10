@@ -15,21 +15,21 @@ import Trash from "./pages/Trash";
 
 function App() {
   return (
-    <BrowserRouter basename="/M-Note">
+    <BrowserRouter>
       <Routes>
-        <Route path="/Home" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/note" element={<Note />} />
-        <Route path="folders" element={<Folders />} />
+        <Route path="/folders" element={<Folders />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/trash" element={<Trash />} />
 
         <Route
           path="/"
-          element={<Navigate to="/Home" replace />}
+          element={<Navigate to="/home" replace />}
         />
         <Route
           path="*"
-          element={<Navigate to="/Home" replace />}
+          element={<Navigate to="/home" replace />}
         />
       </Routes>
     </BrowserRouter>
