@@ -12,7 +12,7 @@ import './style/material-symbols-outlined.css';
 
 function NavigationButton({ text, target, id }: NavigationProps) {
 	// const href : string = target === 'home' ? '/' : `/${target}`
-	const href : string = target === 'home' ? '/Home' : `/${target}`
+	const href : string = target === 'home' ? '/home' : `/${target}`
 	return ( <Link to={href} className={"NavigationButton materialSymbolsOutlined"} id={id}>{text}</Link> )
 }
 
