@@ -1,8 +1,7 @@
-[M-Note](https://ali-mahdi-eng.github.io/M-Note/) project is an app note website.
 
 ## Getting Started
 
-Check the [preview](https://ali-mahdi-eng.github.io/M-Note/) offered by GitHub Pages to see the result.
+[M-Note](https://m-note-app.vercel.app/home/) is an app note website support Prograssive Web Application (PWA) technology.
 
 
 ## Learn More (Introduction)
